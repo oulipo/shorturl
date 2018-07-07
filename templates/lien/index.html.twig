@@ -1,0 +1,28 @@
+{% extends 'base.html.1.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Hello{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if liens is defined %}
+                <ul class="list-group list-group-flush">
+                {% for lien in liens %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center"><a href="{{ lien.long }}" target="_blank">{{ lien.long }}</a> 🔪 <a href="{{ path('court', { 'court': lien.court }) }}" target="_blank">{{ lien.court }}</a><span class="badge badge-primary badge-pill">{{ lien.compteur }}</span></li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

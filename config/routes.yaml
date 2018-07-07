@@ -1,0 +1,7 @@
+index:
+   path: /
+   controller: App\Controller\LienController::index
+
+court:
+  path: /{court}
+  controller: App\Controller\LienController::rediriger
